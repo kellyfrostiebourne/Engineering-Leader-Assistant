@@ -7,3 +7,6 @@ __pycache__/
 node_modules/
 .idea/
 .vscode/
+
+# Agent-generated outputs (company IP — local only, do not commit)
+software-engineering-leader-agent/outputs/
