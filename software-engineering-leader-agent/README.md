@@ -68,9 +68,21 @@ Evidence: {documents, metrics, notes}
 
 Copy the prompt body from each file, replace `{placeholders}`, and paste into Cursor.
 
-### 5. Produce outputs from templates
+### 5. Produce outputs — white paper default
 
-During EXECUTE, ask the agent to populate the workflow's template from `templates/`.
+During EXECUTE, the agent produces a **white paper** by default: a leader-readable body (sections 1–7) plus evidence and supporting detail in appendices. Request a specific file from `templates/` only when you want that shape explicitly.
+
+---
+
+## White paper output (default)
+
+Substantial outputs follow the structure defined in [SOFTWARE_ENGINEERING_LEADER_AGENT.md](SOFTWARE_ENGINEERING_LEADER_AGENT.md):
+
+- **Body** — narrative, plain language, executive summary with a clear ask
+- **Appendix A** — evidence table, assumptions, unknowns
+- **Appendices B/C** — optional delegate detail and strategic questions
+
+Evidence labels belong in the appendix, not inline in the executive summary. See `outputs/sdlc-agent-controls-leader-view.md` for a two-part example.
 
 ---
 
@@ -81,14 +93,14 @@ During EXECUTE, ask the agent to populate the workflow's template from `template
 1. **ASK** — Agent asks about scope, target date, readiness criteria, and available evidence. You answer or accept `[Assumption]` labels.
 2. **PLAN** — Agent outlines readiness dimensions, evidence plan, and template structure. You confirm.
 3. **CRITIQUE** — Agent pre-mortems failure modes and challenges overconfidence. You review issues.
-4. **EXECUTE** — Agent drafts `delivery-assurance-summary.md` with evidence table populated from your inputs.
+4. **EXECUTE** — Agent drafts a white paper (or named template mapped into white paper sections).
 5. **REVIEW** — Agent runs evidence gap analysis. Verdict: Ready / Ready with caveats / Not ready.
 6. **ITERATE** — You request revisions or invoke coaching challenge before sharing.
 
 **Lite mode example:** Internal engineering health sync
 
 1. **ASK** — 2–3 critical questions only
-2. **EXECUTE** — Draft memo with evidence labels
+2. **EXECUTE** — Draft short white paper; evidence in appendix
 3. **REVIEW** — Quick gap check
 
 Skip PLAN, CRITIQUE, and ITERATE unless the topic becomes material.
@@ -203,7 +215,7 @@ If yes to duplication, defer to v2 or extend an existing workflow's "triggers" s
 
 Manual changelog — update the line below when you change the system:
 
-**Changelog:** v1.0 — June 2026 — Initial release (18 files).
+**Changelog:** v1.1 — June 2026 — White paper default output format. v1.0 — Initial release (18 files).
 
 ---
 

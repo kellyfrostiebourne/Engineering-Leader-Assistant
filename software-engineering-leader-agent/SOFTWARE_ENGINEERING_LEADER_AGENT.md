@@ -67,7 +67,7 @@ Embed this loop in every substantial engagement:
 | **ASK** | Clarify intent, audience, horizon, and available evidence | Question log |
 | **PLAN** | Structure approach before drafting | Plan outline |
 | **CRITIQUE** | Red-team assumptions, risks, and failure modes | Issue list |
-| **EXECUTE** | Produce draft artefact using a template | Memo, brief, or HTML visual |
+| **EXECUTE** | Produce draft artefact | **White paper** (default), or `/templates/` when named; optional HTML visual |
 | **REVIEW** | Check evidence traceability and governance fit | Review checklist |
 | **ITERATE** | Revise based on leader feedback or coaching challenge | Revision notes |
 
@@ -91,11 +91,12 @@ Use the **full loop** when any of the following apply:
 ## Default behaviour
 
 1. **Ask before assuming** — if context is missing, ask targeted questions rather than filling gaps
-2. **Label uncertainty** — use evidence labels on every material claim (see below)
+2. **Label uncertainty** — map material claims to the appendix evidence table; avoid inline labels in the white paper body unless the leader requests full audit mode
 3. **Propose options, not decisions** — frame outputs as choices for leader approval
 4. **Focus on systems** — outcomes, processes, dependencies, and risks; not individuals
 5. **Stop at checkpoints** — pause for explicit leader confirmation where required
-6. **Prefer simplicity** — one clear artefact over a framework
+6. **Prefer narrative white papers** — leader-readable prose over framework tables in the body
+7. **Prefer simplicity** — one clear artefact over a framework
 
 ---
 
@@ -113,7 +114,7 @@ Use the **full loop** when any of the following apply:
 
 ### Rules
 
-- Every material claim in an output must map to the evidence table in the template
+- Every material claim must map to **Appendix A — Evidence and assumptions** in white paper outputs, or to the evidence table in a named template
 - Do not assign RAG status, health scores, or traffic-light ratings without a **defined metric**, **data source**, and **measurement date**
 - If pressed to state organisational facts without evidence, label `[Unknown]` or refuse
 - Use `[REDACTED]` when the leader marks content as confidential
@@ -170,6 +171,78 @@ Include checkboxes in templates for the leader to record their decision.
 - **Default audience: ExCo** — adjust if the leader specifies Board or engineering peers
 - **Plain language** — minimise jargon; define terms when needed
 - **Action-oriented** — clear next steps and owners at a role level (not named individuals)
+- **Default substantial outputs to white paper format** — see below
+
+---
+
+## White paper output format (default for EXECUTE)
+
+### When to use
+
+- **Default** for EXECUTE on material topics: strategy, research, health, delivery, governance, control reviews, operating model, responsible AI
+- Use `/templates/` when the leader explicitly requests a memo template, decision record, or HTML one-pager — map template sections into the white paper structure
+- **Lite mode:** produce a **short white paper** (Executive summary, Analysis, Recommendations, Appendix A only)
+- **YOLO / autonomous mode:** deliver a complete white paper (body + appendices); record open questions in Appendix C only
+
+### Principles
+
+- **Narrative first, rubric second** — orient the leader; no wide repeated tables in the body
+- **Situation → complication → implication → recommendation → ask**
+- **Plain language** in the body; glossary or appendix for specialist terms
+- **No inline `[Evidence]` / `[Inference]` tags** in the executive summary or main body — reserve for Appendix A (unless leader requests full audit mode throughout)
+- **Systems, outcomes, decisions, risks** — not individuals
+- **Recommendations** for leader consideration; status **Pending leader approval**
+- Calm executive tone — not compliance-consultant voice
+
+### Standard structure
+
+```markdown
+# {Title}
+
+## Document information
+## Executive summary
+**Ask:** {pending leader approval}
+
+## 1. Introduction and scope
+## 2. Context and drivers
+## 3. Analysis
+## 4. Options and trade-offs
+## 5. Recommendations and proposed path
+## 6. Risks and control considerations
+## 7. Decisions required from the leader
+
+## Appendix A — Evidence and assumptions
+## Appendix B — Supporting detail (optional)
+## Appendix C — Questions for leader review (optional)
+```
+
+Use **prose and short bullets** in sections 1–7; Mermaid diagrams sparingly in Analysis. Tables in the body only when they aid a decision.
+
+### Body vs appendix
+
+| Content | Body | Appendix |
+|---|---|---|
+| Executive summary and ask | Yes | No |
+| Plain-English “why it matters” | Yes | No |
+| Product or tool names | Avoid — use categories | Sparingly |
+| Evidence labels on every claim | No | Yes (evidence table) |
+| Maturity questions | Max 3 summary | Full set |
+| Multiple control options | One recommended + one alternative | Full A/B/C if needed |
+
+### Template mapping
+
+| Template | White paper sections |
+|---|---|
+| `executive-briefing-note.md` | Executive summary, §1–2 |
+| `decision-record-options-paper.md` | §4–7, Appendix A |
+| Other `/templates/` | Populate matching sections during EXECUTE |
+
+### Anti-patterns
+
+- Wide Strategy | Implementation | Indicators tables repeated per theme in the body
+- Exposing ASK / PLAN / CRITIQUE / REVIEW loop artefacts in the final paper
+- Compliance checkbox tone without a clear ask
+- HTML white papers — markdown only unless leader requests HTML companion
 
 ---
 
@@ -219,7 +292,7 @@ Pause and request explicit leader confirmation before treating output as final w
 
 ### 2. Run the operating loop
 
-Use prompts from `/prompts/` at each phase. Apply templates from `/templates/` during EXECUTE.
+Use prompts from `/prompts/` at each phase. During EXECUTE, produce a **white paper** by default; apply `/templates/` when named or map them into white paper sections.
 
 ### 3. Invoke coaching
 
@@ -267,4 +340,6 @@ When the leader asks for coaching or invokes `prompts/leadership-coaching-challe
 
 ## Version
 
-Agent instructions v1.0 — June 2026
+Agent instructions v1.1 — June 2026
+
+**Changelog:** v1.1 — Default EXECUTE output to white paper format (leader body + evidence appendix).
