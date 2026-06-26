@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--
+  Leadership Visual Summary — Software Engineering Leader Agent
+
+  AGENT INSTRUCTIONS:
+  - Replace all {{PLACEHOLDER}} values with content from the companion markdown output
+  - Generic shell for governance, risk, delivery, or health summaries
+  - Every metric or status claim must map to evidence footnotes (E1, E2, etc.)
+  - Do not use chart libraries or unverified data visualisations
+  - Self-contained: inline CSS only; no JavaScript, external fonts, or CDNs
+  - Use British English
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} — Leadership Summary</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: #1a202c;
+      background: #f7fafc;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+    .hero {
+      background: #2d3748;
+      color: #ffffff;
+      padding: 2rem;
+    }
+    .hero h1 { font-size: 1.5rem; font-weight: 700; }
+    .hero .subtitle { font-size: 1rem; opacity: 0.85; margin-top: 0.5rem; }
+    .hero .meta { font-size: 0.8rem; opacity: 0.65; margin-top: 0.75rem; }
+    .content { padding: 2rem; }
+    .summary-bar {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+      background: #edf2f7;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .stat-card .label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #718096;
+    }
+    .stat-card .value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 0.25rem 0;
+    }
+    .stat-card .ref { font-size: 0.7rem; color: #a0aec0; }
+    .columns {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) { .columns { grid-template-columns: 1fr; } }
+    .panel {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+    .panel h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #4a5568;
+      margin-bottom: 1rem;
+    }
+    .panel ul { list-style: disc; margin-left: 1.25rem; }
+    .panel li { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .risk-panel {
+      background: #fff5f5;
+      border-color: #fc8181;
+    }
+    .risk-panel h2 { color: #c53030; }
+    .decision-panel {
+      background: #ebf8ff;
+      border-color: #90cdf4;
+    }
+    .decision-panel h2 { color: #2b6cb0; }
+    .status-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #4a5568;
+    }
+    footer {
+      padding: 1.5rem 2rem;
+      background: #edf2f7;
+      font-size: 0.75rem;
+      color: #718096;
+    }
+    footer dt { font-weight: 700; margin-top: 0.4rem; }
+    footer dd { margin-left: 1rem; }
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <header class="hero">
+      <h1>{{TITLE}}</h1>
+      <p class="subtitle">{{SUBTITLE}}</p>
+      <p class="meta">{{ORGANISATION}} · {{DATE}} · {{AUDIENCE}} · {{WORKFLOW_TYPE}}</p>
+    </header>
+
+    <div class="content">
+      <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">{{EXECUTIVE_SUMMARY}}</p>
+
+      <div class="summary-bar" role="group" aria-label="Summary indicators">
+        <div class="stat-card">
+          <div class="label">{{INDICATOR_1_LABEL}}</div>
+          <div class="value">{{INDICATOR_1_VALUE}}</div>
+          <div class="ref">{{INDICATOR_1_REF}}</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">{{INDICATOR_2_LABEL}}</div>
+          <div class="value">{{INDICATOR_2_VALUE}}</div>
+          <div class="ref">{{INDICATOR_2_REF}}</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">{{INDICATOR_3_LABEL}}</div>
+          <div class="value">{{INDICATOR_3_VALUE}}</div>
+          <div class="ref">{{INDICATOR_3_REF}}</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Status</div>
+          <div class="value"><span class="status-tag">{{OVERALL_STATUS}}</span></div>
+          <div class="ref">{{STATUS_REF}}</div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div>
+          <div class="panel" style="margin-bottom: 1.5rem;">
+            <h2>Key findings</h2>
+            <ul>
+              <li>{{FINDING_1}} <em>({{FINDING_1_REF}})</em></li>
+              <li>{{FINDING_2}} <em>({{FINDING_2_REF}})</em></li>
+              <li>{{FINDING_3}} <em>({{FINDING_3_REF}})</em></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h2>Recommendations (for leader consideration)</h2>
+            <ul>
+              <li>{{RECOMMENDATION_1}}</li>
+              <li>{{RECOMMENDATION_2}}</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="panel risk-panel" style="margin-bottom: 1.5rem;">
+            <h2>Risk callout</h2>
+            <p>{{RISK_CALLOUT}}</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;"><em>Evidence: {{RISK_EVIDENCE_REFS}}</em></p>
+          </div>
+          <div class="panel decision-panel">
+            <h2>Decision required</h2>
+            <p><strong>Ask:</strong> {{DECISION_ASK}}</p>
+            <p style="margin-top: 0.75rem;"><strong>Status:</strong> Pending leader approval</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p><strong>Evidence footnotes</strong> — indicators and findings must match the companion markdown evidence table. Do not use this template without evidence backing.</p>
+      <dl>
+        <dt>E1</dt><dd>{{EVIDENCE_1_DESCRIPTION}}</dd>
+        <dt>E2</dt><dd>{{EVIDENCE_2_DESCRIPTION}}</dd>
+        <dt>E3</dt><dd>{{EVIDENCE_3_DESCRIPTION}}</dd>
+        <dt>E4</dt><dd>{{EVIDENCE_4_DESCRIPTION}}</dd>
+      </dl>
+      <p style="margin-top: 1rem;">Classification: {{CLASSIFICATION}} · Author: {{AUTHOR}} · Version {{VERSION}}</p>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+  Strategy One-Pager — Software Engineering Leader Agent
+
+  AGENT INSTRUCTIONS:
+  - Replace all {{PLACEHOLDER}} values with content from the companion markdown briefing
+  - Every claim in key points must map to an evidence reference (E1, E2, etc.)
+  - Do not invent metrics or statistics
+  - Self-contained: inline CSS only; no JavaScript, external fonts, or CDNs
+  - Default audience: ExCo
+  - Use British English
+-->
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} — Strategy One-Pager</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.5;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    header {
+      border-bottom: 3px solid #1a3a5c;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: 1.75rem;
+      color: #1a3a5c;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #4a5568;
+      margin-top: 0.5rem;
+    }
+    .meta {
+      font-size: 0.8rem;
+      color: #718096;
+      margin-top: 0.75rem;
+    }
+    .ask-banner {
+      background: #1a3a5c;
+      color: #ffffff;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .ask-banner strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+    section {
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 1rem;
+    }
+    h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #1a3a5c;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+    ul { list-style: none; }
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+    }
+    li:last-child { border-bottom: none; }
+    .evidence-ref {
+      font-size: 0.75rem;
+      color: #718096;
+      font-style: italic;
+    }
+    .risk-callout {
+      background: #fff8f0;
+      border-left: 4px solid #c05621;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .risk-callout h2 { color: #c05621; border-color: #fed7aa; }
+    .decision-box {
+      background: #f7fafc;
+      border: 2px solid #1a3a5c;
+      padding: 1rem 1.25rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+    .decision-box h2 { border: none; padding: 0; }
+    footer {
+      font-size: 0.75rem;
+      color: #718096;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1rem;
+    }
+    .evidence-footnotes dt { font-weight: 700; margin-top: 0.5rem; }
+    .evidence-footnotes dd { margin-left: 1rem; color: #4a5568; }
+    @media print {
+      body { padding: 1rem; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>{{TITLE}}</h1>
+    <p class="subtitle">{{SUBTITLE}}</p>
+    <p class="meta">{{ORGANISATION}} · {{DATE}} · {{AUDIENCE}} · Version {{VERSION}}</p>
+  </header>
+
+  <div class="ask-banner" role="region" aria-label="Executive ask">
+    <strong>Ask</strong>
+    {{EXECUTIVE_ASK}}
+  </div>
+
+  <div class="grid">
+    <section aria-labelledby="situation-heading">
+      <h2 id="situation-heading">Situation</h2>
+      <p>{{SITUATION_SUMMARY}}</p>
+    </section>
+    <section aria-labelledby="implication-heading">
+      <h2 id="implication-heading">Implication</h2>
+      <p>{{IMPLICATION_SUMMARY}}</p>
+    </section>
+  </div>
+
+  <section aria-labelledby="key-points-heading" style="margin-bottom: 1.5rem;">
+    <h2 id="key-points-heading">Key points</h2>
+    <ul>
+      <li>{{KEY_POINT_1}} <span class="evidence-ref">({{EVIDENCE_REF_1}})</span></li>
+      <li>{{KEY_POINT_2}} <span class="evidence-ref">({{EVIDENCE_REF_2}})</span></li>
+      <li>{{KEY_POINT_3}} <span class="evidence-ref">({{EVIDENCE_REF_3}})</span></li>
+      <li>{{KEY_POINT_4}} <span class="evidence-ref">({{EVIDENCE_REF_4}})</span></li>
+      <li>{{KEY_POINT_5}} <span class="evidence-ref">({{EVIDENCE_REF_5}})</span></li>
+    </ul>
+  </section>
+
+  <div class="risk-callout" role="region" aria-label="Key risks">
+    <h2>Key risks and controls</h2>
+    <p>{{RISK_CALLOUT}}</p>
+    <p class="evidence-ref" style="margin-top: 0.5rem;">Evidence: {{RISK_EVIDENCE_REFS}}</p>
+  </div>
+
+  <div class="decision-box" role="region" aria-label="Decision required">
+    <h2>Decision required</h2>
+    <p><strong>Recommended for leader consideration:</strong> {{RECOMMENDED_OPTION}}</p>
+    <p style="margin-top: 0.5rem;"><strong>Status:</strong> Pending leader approval</p>
+    <p style="margin-top: 0.5rem;">{{DECISION_DETAIL}}</p>
+  </div>
+
+  <footer>
+    <p><strong>Evidence footnotes</strong> — all visual claims must match the companion markdown evidence table.</p>
+    <dl class="evidence-footnotes">
+      <dt>E1</dt><dd>{{EVIDENCE_1_DESCRIPTION}}</dd>
+      <dt>E2</dt><dd>{{EVIDENCE_2_DESCRIPTION}}</dd>
+      <dt>E3</dt><dd>{{EVIDENCE_3_DESCRIPTION}}</dd>
+      <dt>E4</dt><dd>{{EVIDENCE_4_DESCRIPTION}}</dd>
+      <dt>E5</dt><dd>{{EVIDENCE_5_DESCRIPTION}}</dd>
+    </dl>
+    <p style="margin-top: 1rem;">Classification: {{CLASSIFICATION}} · Author: {{AUTHOR}}</p>
+  </footer>
+
+</body>
+</html>
