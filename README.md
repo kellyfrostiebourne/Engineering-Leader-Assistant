@@ -4,4 +4,4 @@ An assistant for engineering leaders.
 
 ## Status
 
-Initial project setup.
+Initial project setup. (Updated Jun 2026.)
